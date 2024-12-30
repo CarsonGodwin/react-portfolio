@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div style={styles.layout}>
       <Header />
-      {children}
+      <main style={styles.content}>{children}</main>
       <Footer />
     </div>
   );
@@ -17,6 +17,10 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+    // Remove backgroundColor here if using App.css
+  },
+  content: {
+    flex: 1, // Ensures the main content stretches between Header and Footer
   },
 };
 

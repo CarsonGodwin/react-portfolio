@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/Experience.css";
+import "../../styles/ZigZag.css";
 
 const Experience = () => {
   const experiences = [
@@ -9,51 +9,56 @@ const Experience = () => {
       location: "Raleigh, NC",
       timeframe: "May– July 2024",
       description: [
-        "Automated conversion of Requirement Traceability Matrix (RTM) documents into Functional Design Specification (FDS) documents using Azure OpenAI, LangChain, and Pandas, ensuring accuracy and efficiency.",
-        "Created a front-end interface using HTML, CSS, and JavaScript to facilitate user interaction with the automated solution.",
-        "Developed the backend using Flask to handle requests and integrate with the front-end and automated processes.",
-        "Collaborated with cross-functional teams and Clients to ensure seamless integration and delivery of the final product.",
+        "Automated conversion of RTM documents into FDS documents using Azure OpenAI, LangChain, and Pandas.",
+        "Created a front-end interface using HTML, CSS, and JavaScript.",
+        "Developed the backend using Flask to handle requests and integrate with the front-end.",
+        "Collaborated with cross-functional teams to ensure seamless delivery.",
       ],
     },
     {
       title: "Machine Learning Research Apprentice",
-      company: "College of Science and Engineering, UNCW",
+      company: "UNCW",
       location: "Wilmington, NC",
-      timeframe: "September 2022 – January 2024",
+      timeframe: "Sep 2022 – Jan 2024",
       description: [
-        "Developed virtual personality to research web search privacy and understanding engine personalization.",
-        "Lead author on published IEEE research paper on privacy and search personalization, contributing to data analysis.",
-        "Created a dataset used to train Machine Learning Models on privacy and web search behaviors.",
+        "Developed virtual personality for research on web search privacy.",
+        "Lead author on a published IEEE paper on privacy and search personalization.",
+        "Created datasets to train Machine Learning Models on privacy behaviors.",
       ],
     },
     {
       title: "Research Intern",
-      company: "National Science Foundation, Florida International University (FIU)",
+      company: "NSF at FIU",
       location: "Miami, FL",
-      timeframe: "May – August 2023",
+      timeframe: "May – Aug 2023",
       description: [
-        "Implemented a Virtual Network Function (VNF) deployment strategy across network infrastructures considering node and edge availability for improved network management.",
-        "Developed a dynamic simulation model for service function chains to accurately depict complex, variable network load requirements.",
+        "Implemented Virtual Network Function deployment strategies for improved network management.",
+        "Developed a dynamic simulation model for service function chains.",
       ],
     },
   ];
 
   return (
-    <section id="experience" className="experience-section">
-      <h1 className="section-title">Experience</h1>
-      <div className="experience-list">
+    <section id="experience" className="zigzag-section">
+      <h1 className="zigzag-title">Experience</h1>
+      <div className="zigzag-container">
         {experiences.map((experience, index) => (
-          <div key={index} className="experience-card">
-            <h2 className="experience-title">{experience.title}</h2>
-            <p className="experience-company">
-              <strong>{experience.company}</strong> - {experience.location}
-            </p>
-            <p className="experience-timeframe">{experience.timeframe}</p>
-            <ul className="experience-description">
-              {experience.description.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+          <div
+            key={index}
+            className={`zigzag-item ${index % 2 === 0 ? "left" : "right"}`}
+          >
+            <div className="zigzag-content">
+              <h2>{experience.title}</h2>
+              <p className="zigzag-company">
+                <strong>{experience.company}</strong> - {experience.location}
+              </p>
+              <p className="zigzag-timeframe">{experience.timeframe}</p>
+              <ul>
+                {experience.description.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
