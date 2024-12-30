@@ -1,0 +1,56 @@
+/* About section styling */
+
+.about-section {
+    background-color: #f9f9f9; /* Light background */
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+  }
+  
+  .about-text {
+    flex: 1;
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .about-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #007bff; /* Highlight color */
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-graphic {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .symbolic-icon {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular image */
+    border: 5px solid #007bff; /* Matching highlight color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
