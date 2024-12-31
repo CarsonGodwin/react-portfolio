@@ -1,5 +1,9 @@
 import React from "react";
 import "../../styles/ZigZag.css";
+import InfosysLogo from "../../assets/images/Infosys.webp"; 
+import UNCWLogo from "../../assets/images/UNCW.png"; 
+import NSFLogo from "../../assets/images/NSF.png";; 
+
 
 const Experience = () => {
   const experiences = [
@@ -14,6 +18,7 @@ const Experience = () => {
         "Developed the backend using Flask to handle requests and integrate with the front-end.",
         "Collaborated with cross-functional teams to ensure seamless delivery.",
       ],
+      logo: InfosysLogo,
     },
     {
       title: "Machine Learning Research Apprentice",
@@ -25,16 +30,18 @@ const Experience = () => {
         "Lead author on a published IEEE paper on privacy and search personalization.",
         "Created datasets to train Machine Learning Models on privacy behaviors.",
       ],
+      logo: UNCWLogo,
     },
     {
       title: "Research Intern",
-      company: "NSF at FIU",
+      company: "National Science Foundation at FIU",
       location: "Miami, FL",
       timeframe: "May – Aug 2023",
       description: [
         "Implemented Virtual Network Function deployment strategies for improved network management.",
         "Developed a dynamic simulation model for service function chains.",
       ],
+      logo: NSFLogo,
     },
   ];
 
@@ -48,6 +55,14 @@ const Experience = () => {
             className={`zigzag-item ${index % 2 === 0 ? "left" : "right"}`}
           >
             <div className="zigzag-content">
+              {/* Render logo if available */}
+              {experience.logo && (
+                <img
+                  src={experience.logo}
+                  alt={`${experience.company} logo`}
+                  className="zigzag-logo"
+                />
+              )}
               <h2>{experience.title}</h2>
               <p className="zigzag-company">
                 <strong>{experience.company}</strong> - {experience.location}
@@ -64,6 +79,7 @@ const Experience = () => {
       </div>
     </section>
   );
+  
 };
 
 export default Experience;

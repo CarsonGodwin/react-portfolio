@@ -4,24 +4,28 @@ import KartoImage1 from "../../assets/images/kartoPost.png";
 import KartoImage2 from "../../assets/images/kartoMap.png";
 import MoodWavesImage1 from "../../assets/images/Dashboard-portrait.png";
 import MoodWavesImage2 from "../../assets/images/MoodLog-portrait.png";
-import PythonLogo from "../../assets/images/Python.jpeg";
+import PythonLogo from "../../assets/images/Python.png";
 import JavaLogo from "../../assets/images/Java.png";
+import SceneBuilderLogo from "../../assets/images/SceneBuilderLogo.png";
+import SeleniumLogo from "../../assets/images/selenium.png";
 
 const Projects = () => {
   const projectsData = [
     {
       title: "Karto",
-      description: "Karto is a location-based social media platform designed to connect users through geotagged posts and a seamless map interface.",
+      description:
+        "Karto is a location-based social media platform designed to connect users through geotagged posts and a seamless map interface.",
       images: [KartoImage1, KartoImage2],
       timeline: "April 2023 - Present | Karto LLC",
       link: "https://apps.apple.com/us/app/karto-social/id6474485058",
     },
     {
       title: "Mood Waves",
-      description: "Mood Waves is a mood tracking app that allows users to log their emotions, view trends, and receive personalized insights.",
+      description:
+        "Mood Waves is a mood tracking app that allows users to log their emotions, view trends, and receive personalized insights.",
       images: [MoodWavesImage1, MoodWavesImage2],
       timeline: "Jan 2024 - May 2024 | University of North Carolina Wilmington",
-      link: "#",
+      link: "https://github.com/CarsonGodwin/MoodWaves",
     },
     {
       title: "Java Time Management Application",
@@ -32,7 +36,7 @@ const Projects = () => {
         access to work schedules.
       `,
       skills: ["Java", "App Development", "Employee Management Tools"],
-      logo: JavaLogo,
+      logos: [JavaLogo,SceneBuilderLogo],
       timeline: "Oct 2023 - Dec 2023 | University of North Carolina Wilmington",
       link: "https://github.com/CarsonGodwin/331-group-project",
     },
@@ -45,7 +49,7 @@ const Projects = () => {
         extraction efficiency and tool scalability.
       `,
       skills: ["Python", "Selenium", "BeautifulSoup", "Data Collection"],
-      logo: PythonLogo,
+      logos: [PythonLogo, SeleniumLogo],
       timeline: "Sep 2022 - Feb 2023 | UNCW College of Science and Engineering",
       link: "https://github.com/CarsonGodwin/ML-Webscraper",
     },
@@ -61,12 +65,23 @@ const Projects = () => {
             className={`project-card ${index % 2 === 0 ? "right" : "left"}`} // Alternate classes
           >
             <div className="project-content">
-              {/* Render logo if available */}
-              {project.logo && (
-                <img src={project.logo} alt={`${project.title} logo`} className="project-logo" />
+              {/* Render logos if available */}
+              {project.logos && (
+                <div className="project-logos">
+                  {project.logos.map((logo, idx) => (
+                    <img
+                      key={idx}
+                      src={logo}
+                      alt={`${project.title} logo ${idx + 1}`}
+                      className="project-logo"
+                    />
+                  ))}
+                </div>
               )}
               <h2 className="project-title">{project.title}</h2>
-              {project.timeline && <p className="project-timeline">{project.timeline}</p>}
+              {project.timeline && (
+                <p className="project-timeline">{project.timeline}</p>
+              )}
               <p className="project-description">{project.description}</p>
               {project.skills && (
                 <ul className="project-skills">
@@ -90,7 +105,12 @@ const Projects = () => {
                   ))}
                 </div>
               )}
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+              >
                 View Project
               </a>
             </div>

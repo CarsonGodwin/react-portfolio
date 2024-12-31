@@ -1,5 +1,9 @@
 import React from "react";
 import "../../styles/About.css";
+import AppStoreLogo from "../../assets/images/appstore.png"; // Replace with the actual path to the App Store logo
+import LinkedInLogo from "../../assets/images/linkedin.png"; // Replace with the actual path to the LinkedIn logo
+import GitHubLogo from "../../assets/images/Github.png"; // Replace with the actual path to the GitHub logo
+
 
 const About = () => {
   return (
@@ -20,11 +24,42 @@ const About = () => {
           </p>
         </div>
         <div className="about-graphic">
-          <img
-            src="https://img.icons8.com/ios/50/000000/web-design.png"
-            alt="Developer Icon"
-            className="symbolic-icon"
-          />
+          <a
+            href="https://apps.apple.com/us/app/karto-social/id6474485058"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon1"
+          >
+            <img
+              src={AppStoreLogo}
+              alt="App Store"
+              className="about-icon"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/carson-godwin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon2"
+          >
+            <img
+              src={LinkedInLogo}
+              alt="LinkedIn"
+              className="about-icon"
+            />
+          </a>
+          <a
+            href="https://github.com/CarsonGodwin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon3"
+          >
+            <img
+              src={GitHubLogo}
+              alt="GitHub"
+              className="about-icon"
+            />
+          </a>
         </div>
       </div>
     </section>

@@ -1,0 +1,91 @@
+.skills-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #282c34;
+  }
+  
+  .skills-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Featured Skills */
+  .skills-section .featured-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .skills-section .featured-skill-item {
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skills-section .featured-skill-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Additional Skills */
+
+  .skills-section .additional-skills {
+    margin-top: 3rem;
+    overflow: hidden; /* Hide overflowing content */
+    position: relative; /* Relative position for child animations */
+    width: 100%; /* Ensure container takes full width */
+    height: auto;
+  }
+  
+  .skills-section .additional-skills-list {
+    display: flex;
+    gap: 2rem; /* Space between items */
+    animation: scroll-continuous 20s linear infinite; /* Continuous scrolling animation */
+    width: max-content; /* Ensure content width is as wide as needed */
+  }
+  
+  .skills-section .additional-skill-item {
+    flex: 0 0 auto; /* Prevent shrinking, fixed size for scrolling */
+    background: #e9ecef;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Prevent wrapping of text */
+  }
+  
+  
+  .skills-section .additional-skill-item:hover {
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Scrolling Animation */
+  @keyframes scroll-continuous {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Moves half the container width */
+  }
+}
+  
+  /* Duplicate list for seamless scrolling */
+  .skills-section .additional-skills-list::after {
+    content: '';
+    display: block;
+  }
+  
+  

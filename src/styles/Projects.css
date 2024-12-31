@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 4rem; /* Space between cards */
     padding: 2rem;
+    
 }
 
 .project-card {
@@ -19,14 +20,16 @@
     flex-direction: row; /* Content on the left */
 }
 
+
 .project-content {
     max-width: 600px;
-    background-color: #fff;
+    background-color: white;
     padding: 1.5rem 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
+
+  
 
 .project-images {
     display: flex;
@@ -38,8 +41,26 @@
     width: 300px; /* Adjust width */
     height: auto;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.project-logo {
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 150px; /* Set maximum width */
+    max-height: 150px; /* Set maximum height */
+    border-radius: 5px;
+    object-fit: contain; /* Ensure the image fits within the defined dimensions */
+}
+
+.project-logos {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: flex-start;
+  }
+  
+
+  
 
 .project-title {
     font-size: 1.8rem;

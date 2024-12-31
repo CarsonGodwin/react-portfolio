@@ -6,18 +6,13 @@ const Header = () => {
   const socialLinksData = [
     {
       name: "GitHub",
-      url: "https://github.com/",
+      url: "https://github.com/CarsonGodwin",
       icon: "https://img.icons8.com/material-outlined/24/ffffff/github.png",
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/",
+      url: "https://www.linkedin.com/in/carson-godwin/",
       icon: "https://img.icons8.com/material-outlined/24/ffffff/linkedin.png",
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/",
-      icon: "https://img.icons8.com/material-outlined/24/ffffff/twitter.png",
     },
   ];
 
@@ -25,9 +20,6 @@ const Header = () => {
     <header className="header">
       <div className="logo">Carson's Portfolio</div>
       <nav className="nav">
-        <a href="#home" className="nav-link">
-          Home
-        </a>
         <a href="#about" className="nav-link">
           About
         </a>

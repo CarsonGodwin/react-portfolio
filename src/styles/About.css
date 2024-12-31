@@ -1,7 +1,7 @@
 /* About section styling */
 
 .about-section {
-    background-color: transparent; 
+    background-color: white; 
     padding: 3rem 1.5rem;
     display: flex;
     justify-content: center;
@@ -19,14 +19,20 @@
   
   .about-text {
     flex: 1;
+    background-color: #f0ead6; /* Eggshell white color */
     color: #333;
     line-height: 1.8;
+    border-radius: 15px; /* Curved edges */
+    padding: 1.5rem; /* Inner spacing */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border: 1px solid #ddd; /* Optional: light border for definition */
   }
+  
   
   .about-text h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #007bff; /* Highlight color */
+    color: black; /* Highlight color */
   }
   
   .about-text p {
@@ -53,4 +59,39 @@
     border: 5px solid #007bff; /* Matching highlight color */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
+.about-graphic {
+  display: grid;
+  grid-template-areas:
+    ". icon1 ."
+    "icon2 . icon3";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Space between icons */
+  justify-items: center;
+  align-items: center;
+  margin-top: 2rem; /* Space above the icons */
+}
+
+.about-icon {
+  width: 100px; /* Larger size for better visibility */
+  height: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.about-icon:hover {
+  transform: scale(1.2); /* Larger zoom effect on hover */
+}
+
+/* Position icons in a triangle */
+.about-graphic .icon1 {
+  grid-area: icon1;
+}
+
+.about-graphic .icon2 {
+  grid-area: icon2;
+}
+
+.about-graphic .icon3 {
+  grid-area: icon3;
+}
