@@ -1,13 +1,12 @@
 .skills-section {
     padding: 4rem 2rem;
     text-align: center;
-    background-color: #282c34;
   }
   
   .skills-section .section-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: white;
+    color: black;
     font-weight: bold;
   }
   

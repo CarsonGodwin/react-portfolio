@@ -1,23 +1,9 @@
 
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #f0ead6;
-  --text-color: #333;
-  --text-muted-color: #555;
-  --background-color: #ffffff;
-  --highlight-color: #0056b3;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --font-family: 'Arial', sans-serif;
-  --border-radius: 10px;
-  --transition-speed: 0.3s;
-  --spacing-unit: 1rem;
-}
-
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(white);
+  background: radial-gradient(circle, #e25a5f, #fad0c4, #88607d, #ffdde1);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
   color: #fff;

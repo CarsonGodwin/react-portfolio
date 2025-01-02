@@ -1,7 +1,6 @@
 /* About section styling */
 
 .about-section {
-    background-color: white; 
     padding: 3rem 1.5rem;
     display: flex;
     justify-content: center;
@@ -66,14 +65,14 @@
     ". icon1 ."
     "icon2 . icon3";
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem; /* Space between icons */
+  gap: 2rem; 
   justify-items: center;
   align-items: center;
-  margin-top: 2rem; /* Space above the icons */
+  margin-top: 2rem; 
 }
 
 .about-icon {
-  width: 100px; /* Larger size for better visibility */
+  width: 100px; 
   height: 100px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
