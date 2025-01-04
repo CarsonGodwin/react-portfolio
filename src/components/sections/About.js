@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/About.css";
-import AppStoreLogo from "../../assets/images/appstore.png"; // Replace with the actual path to the App Store logo
-import LinkedInLogo from "../../assets/images/linkedin.png"; // Replace with the actual path to the LinkedIn logo
-import GitHubLogo from "../../assets/images/Github.png"; // Replace with the actual path to the GitHub logo
+import AppStoreLogo from "../../assets/images/appstore.png"; 
+import LinkedInLogo from "../../assets/images/linkedin.png";
+import GitHubLogo from "../../assets/images/whiteGitHub.png"; 
 
 
 const About = () => {
@@ -10,8 +10,8 @@ const About = () => {
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-text">
-          <h1>About Me</h1>
-          <p>
+        <h1 class="section-title">About Me</h1>
+        <p>
             Hi, I'm a passionate web developer with a knack for creating dynamic
             and user-friendly web applications. I thrive on learning new
             technologies and sharing my knowledge with others. Whether crafting

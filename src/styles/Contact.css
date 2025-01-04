@@ -6,16 +6,11 @@
   color: #333; /* Dark text color for better readability */
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #007bff; /* Highlight color */
-  font-weight: bold;
-}
+
 
 .contact-text {
   font-size: 1.1rem;
-  color: #444; /* Slightly darker color for better readability */
+  color: white; /* Slightly darker color for better readability */
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;

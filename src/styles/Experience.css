@@ -5,12 +5,6 @@
   text-align: center;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: black; /* Highlight color */
-}
-
 .experience-list {
   display: flex;
   flex-direction: column;
@@ -62,4 +56,14 @@
   transform: translateY(-5px); /* Slight lift effect on hover */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.research-link {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.research-link:hover {
+  text-decoration: underline;
 }

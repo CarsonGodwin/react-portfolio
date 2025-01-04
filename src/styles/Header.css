@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #282c34;
+    background-color: #25282d;
     color: #fff;
     position: sticky;
     top: 0;
@@ -35,5 +35,16 @@
   .nav-link:hover {
     background-color: #007bff;
     transform: scale(1.05);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .logo:hover {
+    text-decoration: underline;
   }
   

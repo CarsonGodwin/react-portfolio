@@ -86,14 +86,14 @@
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #f5ba42;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .project-link:hover {
-    background-color: #0056b3;
+    background-color: #f5ba42;
 }
 
 @media (max-width: 768px) {
@@ -103,7 +103,7 @@
 
     .project-card.right,
     .project-card.left {
-        flex-direction: column; /* Remove zig-zag for mobile */
+        flex-direction: column; 
     }
 
     .project-images {

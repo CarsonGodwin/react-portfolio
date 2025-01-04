@@ -4,7 +4,6 @@ import InfosysLogo from "../../assets/images/Infosys.webp";
 import UNCWLogo from "../../assets/images/UNCW.png"; 
 import NSFLogo from "../../assets/images/NSF.png";; 
 
-
 const Experience = () => {
   const experiences = [
     {
@@ -31,6 +30,10 @@ const Experience = () => {
         "Created datasets to train Machine Learning Models on privacy behaviors.",
       ],
       logo: UNCWLogo,
+      button: {
+        text: "My Research",
+        url: "https://ieeexplore.ieee.org/document/10459555", 
+      },
     },
     {
       title: "Research Intern",
@@ -47,7 +50,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="zigzag-section">
-      <h1 className="zigzag-title">Experience</h1>
+      <h1 className="section-title">Experience</h1>
       <div className="zigzag-container">
         {experiences.map((experience, index) => (
           <div
@@ -73,13 +76,23 @@ const Experience = () => {
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
+              {/* Add button if the experience has one */}
+              {experience.button && (
+                <a
+                  href={experience.button.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="zigzag-button"
+                >
+                  {experience.button.text}
+                </a>
+              )}
             </div>
           </div>
         ))}
       </div>
     </section>
   );
-  
 };
 
 export default Experience;

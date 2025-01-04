@@ -3,13 +3,6 @@
     text-align: center;
   }
   
-  .skills-section .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: black;
-    font-weight: bold;
-  }
-  
   /* Featured Skills */
   .skills-section .featured-skills {
     display: flex;
@@ -41,7 +34,7 @@
     margin-top: 3rem;
     overflow: hidden; /* Hide overflowing content */
     position: relative; /* Relative position for child animations */
-    width: 100%; /* Ensure container takes full width */
+    width: 100%; 
     height: auto;
   }
   
@@ -49,7 +42,7 @@
     display: flex;
     gap: 2rem; /* Space between items */
     animation: scroll-continuous 20s linear infinite; /* Continuous scrolling animation */
-    width: max-content; /* Ensure content width is as wide as needed */
+    width: max-content; 
   }
   
   .skills-section .additional-skill-item {
@@ -65,9 +58,8 @@
   
   
   .skills-section .additional-skill-item:hover {
-    background: #007bff;
+    background: #f5ba42;
     color: white;
-    cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
