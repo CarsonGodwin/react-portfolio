@@ -12,15 +12,7 @@ const About = () => {
         <div className="about-text">
         <h1 class="section-title">About Me</h1>
         <p>
-            Hi, I'm a passionate web developer with a knack for creating dynamic
-            and user-friendly web applications. I thrive on learning new
-            technologies and sharing my knowledge with others. Whether crafting
-            intuitive user interfaces or solving complex backend problems, I
-            enjoy turning ideas into reality.
-          </p>
-          <p>
-            When I’m not coding, you’ll find me exploring new places, diving
-            into a good book, or experimenting with creative projects.
+        Hi, I’m Carson Godwin, a passionate software engineer with a background in computer science and business. I specialize in building innovative solutions, from developing location-based social media apps like Karto to leading IEEE-published research on privacy and search personalization. With expertise in Flutter, Firebase, and machine learning, I thrive at the intersection of creativity and technology, crafting scalable, user-centric applications that solve real-world problems.
           </p>
         </div>
         <div className="about-graphic">
