@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-portfolio/static/css/main.a9580827.css",
+    "main.js": "/react-portfolio/static/js/main.2f0863eb.js",
+    "static/media/kartoPost.png": "/react-portfolio/static/media/kartoPost.2950853801ba86928ca7.png",
+    "static/media/MoodLog-portrait.png": "/react-portfolio/static/media/MoodLog-portrait.ded8f8526d8957790cb0.png",
+    "static/media/kartoMap.png": "/react-portfolio/static/media/kartoMap.cf2b8c992013ad691b25.png",
+    "static/media/Dashboard-portrait.png": "/react-portfolio/static/media/Dashboard-portrait.3dce0eefdd884631d41b.png",
+    "static/media/NSF.png": "/react-portfolio/static/media/NSF.43689876b149a6dc3dfd.png",
+    "static/media/linkedin.png": "/react-portfolio/static/media/linkedin.b1bebb391a157454d569.png",
+    "static/media/Python.png": "/react-portfolio/static/media/Python.d3fc9717009bf619e98c.png",
+    "static/media/appstore.png": "/react-portfolio/static/media/appstore.63af567b6eeeb1852ea7.png",
+    "static/media/SceneBuilderLogo.png": "/react-portfolio/static/media/SceneBuilderLogo.77d42038803eb9874e2e.png",
+    "static/media/Java.png": "/react-portfolio/static/media/Java.f5dd86c3ef6ef3f85acf.png",
+    "static/media/selenium.png": "/react-portfolio/static/media/selenium.8f96b108dbc881c54a20.png",
+    "static/media/whiteGitHub.png": "/react-portfolio/static/media/whiteGitHub.4432f0428363b4e194bf.png",
+    "static/media/Infosys.webp": "/react-portfolio/static/media/Infosys.d37953810accf9124f15.webp",
+    "index.html": "/react-portfolio/index.html",
+    "main.a9580827.css.map": "/react-portfolio/static/css/main.a9580827.css.map",
+    "main.2f0863eb.js.map": "/react-portfolio/static/js/main.2f0863eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9580827.css",
+    "static/js/main.2f0863eb.js"
+  ]
+}
