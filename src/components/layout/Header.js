@@ -31,8 +31,10 @@ const Header = () => {
         <a href="#contact" className="nav-link">
           Contact
         </a>
-      </nav>
-      <SocialLinks links={socialLinksData} />
+      </nav> 
+      <div className="links">      
+        <SocialLinks links={socialLinksData} />
+      </div>
     </header>
   );
 };

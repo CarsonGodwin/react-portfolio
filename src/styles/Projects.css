@@ -99,14 +99,18 @@
 @media (max-width: 768px) {
     .project-card {
         flex-direction: column; /* Stack items vertically on small screens */
+        max-width: fit-content;
+        margin: 0 auto; 
+        padding: 1rem; 
     }
-
-    .project-card.right,
+    
     .project-card.left {
         flex-direction: column; 
     }
 
     .project-images {
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
     }
+
 }

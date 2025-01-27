@@ -1,4 +1,4 @@
-/* Zig Zag Styling */
+Zig Zag Styling
 
 .zigzag-section {
     padding: 1rem 2rem;
@@ -207,3 +207,41 @@
     background-color: #0056b3;
   }
   
+  @media (max-width: 768px) {
+    .zigzag {
+      display: flex; /* Ensure flexbox is used */
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center align items */
+      gap: 20px; /* Add space between items */
+    }
+  
+    .zigzag-item {
+      width: 100%; /* Make items take full width */
+      margin: 0; /* Remove any existing margins */
+      padding: 10px; /* Add padding for better spacing */
+    }
+  
+    .zigzag-item:nth-child(even) {
+      flex-direction: column; /* Ensure even items are stacked vertically */
+    }
+  
+    .zigzag-item:nth-child(odd) {
+      flex-direction: column; /* Ensure odd items are stacked vertically */
+    }
+  
+    .zigzag-content {
+      width: 100%; /* Ensure content takes full width */
+      text-align: center; /* Center text for better readability */
+    }
+  
+    .zigzag-image {
+      width: 100%; /* Ensure images take full width */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 10px; /* Add space between images and content */
+    }
+    .project-card.left {
+      flex-direction: column; /* Override left-aligned content for mobile */
+    }
+  
+
+  }

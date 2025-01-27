@@ -94,3 +94,15 @@
 .about-graphic .icon3 {
   grid-area: icon3;
 }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column-reverse; /* Reverse the order of children */
+  }
+
+  .about-icons {
+    margin-bottom: 0; /* Remove bottom margin */
+    margin-top: 20px; /* Add top margin */
+  }
+}

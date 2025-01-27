@@ -68,4 +68,9 @@ html, body, #root, .App {
     font-size: 14px; /* Smaller font size for links */
     padding: 5px 10px; /* Adjust padding for touch-friendly links */
   }
+
+  /* Override zigzag styles for mobile devices */
+  .zigzag {
+    display: none; /* Hide zigzag elements */
+  }
 }
