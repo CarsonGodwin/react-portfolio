@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
+  "homepage": "https://carsongodwin.github.io/react-portfolio",
   "private": true,
   "dependencies": {
     "react": "^19.0.0",
