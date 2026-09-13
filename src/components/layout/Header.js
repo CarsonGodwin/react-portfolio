@@ -1,7 +1,7 @@
 import React from "react";
 import resumePdf from "../../assets/images/Carson_Godwin_Resume.pdf";
 
-const Header = () => {
+const Header = ({ arenaAvailable = false, onEnterArena }) => {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0d0f14]/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -26,6 +26,15 @@ const Header = () => {
           </a>
         </nav>
         <div className="flex items-center gap-3">
+          {arenaAvailable ? (
+            <button
+              className="hidden rounded-full border border-accent/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition hover:border-accent hover:bg-accent/10 lg:inline-flex"
+              onClick={onEnterArena}
+              type="button"
+            >
+              🎮 Arena mode
+            </button>
+          ) : null}
           <a
             className="hidden rounded-full border border-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-text transition hover:border-accent/70 hover:text-accent md:inline-flex"
             href={resumePdf}

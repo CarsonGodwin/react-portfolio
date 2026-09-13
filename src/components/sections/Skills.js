@@ -1,19 +1,5 @@
 import React from "react";
-
-const skillGroups = [
-  {
-    label: "Languages",
-    items: ["Python", "C#", "TypeScript", "JavaScript", "Dart"]
-  },
-  {
-    label: "Frameworks & Tools",
-    items: [".NET", "Angular", "Unity", "Flutter", "Git", "Azure DevOps (CI/CD)"]
-  },
-  {
-    label: "Cloud & Databases",
-    items: ["Azure", "Cosmos DB", "PlayFab", "Firebase", "Google Cloud"]
-  }
-];
+import skillGroups from "../../data/skills";
 
 const Skills = () => {
   return (
@@ -28,7 +14,7 @@ const Skills = () => {
         <div className="grid gap-6 md:grid-cols-3">
           {skillGroups.map((group) => (
             <div
-              key={group.label}
+              key={group.id}
               className="rounded-2xl border border-white/10 bg-white/5 p-6"
               data-reveal
             >

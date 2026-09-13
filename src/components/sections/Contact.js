@@ -1,9 +1,8 @@
 import React from "react";
 import githubLogo from "../../assets/images/whiteGitHub.png";
 import linkedinLogo from "../../assets/images/linkedin.png";
+import contact from "../../data/contact";
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/carson-godwin/";
-const GITHUB_URL = "https://github.com/CarsonGodwin";
 
 const Contact = () => {
   return (
@@ -18,14 +17,14 @@ const Contact = () => {
         <div className="flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/5 p-6">
           <div>
             <p className="text-sm text-muted">Email</p>
-            <a className="mt-2 block text-base font-semibold text-text" href="mailto:carson@carsongodwin.com">
-              carson@carsongodwin.com
+            <a className="mt-2 block text-base font-semibold text-text" href={`mailto:${contact.email}`}>
+              {contact.email}
             </a>
           </div>
           <div className="flex flex-wrap gap-6 text-sm">
             <a
               className="inline-flex items-center gap-2 text-muted underline underline-offset-4 transition hover:text-text"
-              href={LINKEDIN_URL}
+              href={contact.linkedin}
               rel="noreferrer"
               target="_blank"
             >
@@ -34,7 +33,7 @@ const Contact = () => {
             </a>
             <a
               className="inline-flex items-center gap-2 text-muted underline underline-offset-4 transition hover:text-text"
-              href={GITHUB_URL}
+              href={contact.github}
               rel="noreferrer"
               target="_blank"
             >
@@ -44,7 +43,7 @@ const Contact = () => {
           </div>
         </div>
         <footer className="border-t border-white/10 pt-6 text-xs uppercase tracking-[0.3em] text-muted">
-          carsongodwin.com
+          {contact.site}
         </footer>
       </div>
     </section>
