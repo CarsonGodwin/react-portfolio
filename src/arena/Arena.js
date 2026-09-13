@@ -1,79 +1,96 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { createGame } from "./engine/game";
+import { createSandbox } from "./engine/sandbox";
 import HUD from "./hud/HUD";
 import EntityModal from "./hud/EntityModal";
 
-const EMPTY_PROGRESS = { projects: [0, 0], roles: [0, 0], skills: [0, 0], contact: false };
+const EMPTY_PROGRESS = { opened: 0, total: 0 };
 
 const Arena = ({ onExit }) => {
   const canvasRef = useRef(null);
-  const gameRef = useRef(null);
+  const sandboxRef = useRef(null);
   const [entity, setEntity] = useState(null);
-  const [collected, setCollected] = useState([]);
   const [progress, setProgress] = useState(EMPTY_PROGRESS);
+  const [gravityOn, setGravityOn] = useState(true);
   const [showHint, setShowHint] = useState(true);
   const [toast, setToast] = useState(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const game = createGame(canvas, {
-      onOpen: (target) => {
-        setEntity(target);
-        setProgress(game.progress());
-      },
-      onPickup: (picked) => {
-        setCollected((prev) => [...prev, ...picked.map((p) => p.label)]);
-        setProgress(game.progress());
-      },
-      onFirstMove: () => {
-        window.setTimeout(() => setShowHint(false), 4000);
-      }
+    const sandbox = createSandbox(canvasRef.current, {
+      onOpen: setEntity,
+      onProgress: setProgress
     });
-    gameRef.current = game;
-    setProgress(game.progress());
-    game.start();
+    sandboxRef.current = sandbox;
+    sandbox.start();
 
-    const onResize = () => game.resize();
+    const onResize = () => sandbox.resize();
     window.addEventListener("resize", onResize);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const hintTimer = window.setTimeout(() => setShowHint(false), 9000);
 
     return () => {
+      window.clearTimeout(hintTimer);
       window.removeEventListener("resize", onResize);
       document.body.style.overflow = previousOverflow;
-      game.stop();
-      gameRef.current = null;
+      sandbox.stop();
+      sandboxRef.current = null;
     };
   }, []);
 
   useEffect(() => {
-    gameRef.current?.setPaused(Boolean(entity));
+    sandboxRef.current?.setPaused(Boolean(entity));
   }, [entity]);
 
   useEffect(() => {
-    if (progress.skills[1] > 0 && progress.skills[0] === progress.skills[1]) {
-      setToast("Full stack — every skill collected");
-      const id = window.setTimeout(() => setToast(null), 4000);
+    if (progress.total > 0 && progress.opened === progress.total) {
+      setToast("That's everything. Thanks for poking around.");
+      const id = window.setTimeout(() => setToast(null), 5000);
       return () => window.clearTimeout(id);
     }
     return undefined;
   }, [progress]);
 
+  const shake = useCallback(() => sandboxRef.current?.shake(), []);
+  const reset = useCallback(() => sandboxRef.current?.reset(), []);
+  const toggleGravity = useCallback(() => {
+    const on = sandboxRef.current?.toggleGravity();
+    if (on !== undefined) setGravityOn(on);
+  }, []);
   const closeModal = useCallback(() => setEntity(null), []);
+
+  // Keyboard shortcuts mirror the HUD buttons. Ignored while a modal is open
+  // so Space/Esc there behave normally.
+  useEffect(() => {
+    if (entity) return undefined;
+    const onKey = (event) => {
+      if (event.target instanceof HTMLElement && event.target.tagName === "BUTTON" && event.key === " ") return;
+      if (event.key === " ") {
+        event.preventDefault();
+        shake();
+      } else if (event.key === "g" || event.key === "G") {
+        toggleGravity();
+      } else if (event.key === "r" || event.key === "R") {
+        reset();
+      } else if (event.key === "Escape") {
+        onExit();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [entity, shake, reset, toggleGravity, onExit]);
 
   return (
     <div className="fixed inset-0 z-40 bg-background">
-      <canvas
-        ref={canvasRef}
-        className="block h-full w-full cursor-none"
-        aria-hidden="true"
-      />
+      <canvas ref={canvasRef} className="block h-full w-full touch-none" aria-hidden="true" />
       <HUD
         progress={progress}
-        collected={collected}
+        gravityOn={gravityOn}
         showHint={showHint}
         toast={toast}
         onExit={onExit}
+        onShake={shake}
+        onReset={reset}
+        onToggleGravity={toggleGravity}
       />
       <EntityModal entity={entity} onClose={closeModal} />
     </div>

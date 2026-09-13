@@ -1,93 +1,54 @@
 import React from "react";
+import { accentStyle } from "../../theme";
 
-const ProjectCard = ({ project, reveal = true, className = "" }) => {
+// Full project view: used for the featured project on the page and for the
+// arena modal.
+const Media = ({ project }) => {
+  const items = project.media || (project.images || []).map((image) => ({ type: "image", ...image }));
+  if (!items.length) return null;
+  const single = items.length === 1;
   return (
-    <article
-      className={`flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 ${className}`}
-      {...(reveal ? { "data-reveal": true } : {})}
-    >
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-semibold text-text">{project.title}</h3>
-        {project.badge ? (
-          <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-bold text-text">
-            {project.badge}
-          </span>
-        ) : null}
-      </div>
-      <p className="mt-4 text-sm text-muted">{project.description}</p>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-white/10 px-3 py-1 text-xs text-muted"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      {project.media ? (
-        <div
-          className={`mt-6 grid gap-4 ${
-            project.mediaLayout === "stack" ? "grid-cols-1" : "sm:grid-cols-2"
-          }`}
-        >
-          {project.media.map((item) => (
-            <figure key={`${item.type}-${item.src}`}>
-              {item.type === "video" ? (
-                <video
-                  className="w-full rounded-2xl border border-white/10"
-                  controls
-                  preload="metadata"
-                >
-                  <source src={item.src} type="video/mp4" />
-                  {item.label}
-                </video>
-              ) : (
-                <img
-                  alt={item.alt}
-                  className="w-full rounded-2xl"
-                  loading="lazy"
-                  src={item.src}
-                />
-              )}
-            </figure>
-          ))}
-        </div>
-      ) : null}
-      {project.images ? (
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {project.images.map((image) => (
-            <figure key={image.alt}>
-              <img
-                alt={image.alt}
-                className="w-full border-white/10"
-                loading="lazy"
-                src={image.src}
-              />
-            </figure>
-          ))}
-        </div>
-      ) : null}
-      {project.linkLabel ? (
-        <a
-          className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em]"
-          href={project.link}
-          rel="noreferrer"
-          target="_blank"
-        >
-          {project.linkIcon ? (
-            <img
-              alt=""
-              aria-hidden="true"
-              className="h-5 w-5"
-              src={project.linkIcon}
-            />
-          ) : null}
-          {project.linkLabel}
-        </a>
-      ) : null}
-    </article>
+    <div className={`grid gap-3 ${single ? "grid-cols-1" : "grid-cols-2"}`}>
+      {items.map((item) => (
+        <figure key={`${item.type}-${item.src}`} className="tint-frame overflow-hidden rounded-md bg-surface">
+          {item.type === "video" ? (
+            <video
+              className="block aspect-video w-full object-cover"
+              controls
+              poster={item.poster}
+              preload="metadata"
+            >
+              <source src={item.src} type="video/mp4" />
+              {item.label}
+            </video>
+          ) : (
+            <img alt={item.alt} className="block w-full" loading="lazy" src={item.src} />
+          )}
+        </figure>
+      ))}
+    </div>
   );
 };
+
+const ProjectCard = ({ project }) => (
+  <article style={accentStyle(project.accent)}>
+    <Media project={project} />
+    <div className="mt-5 flex items-baseline justify-between gap-6">
+      <h3 className="flex items-center gap-3 text-lg font-semibold tracking-tight text-text">
+        <span className="swatch" aria-hidden="true" />
+        {project.title}
+      </h3>
+      <span className="tabular font-mono text-base text-muted">{project.year}</span>
+    </div>
+    {project.badge ? <span className="badge mt-2 inline-flex">{project.badge}</span> : null}
+    <p className="mt-3 max-w-prose text-[15px] leading-relaxed text-muted">{project.description}</p>
+    <p className="mt-4 font-mono text-xs text-muted">{project.tags.join(" · ")}</p>
+    {project.linkLabel ? (
+      <a className="link mt-4 inline-block text-sm" href={project.link} rel="noreferrer" target="_blank">
+        {project.linkLabel} ↗
+      </a>
+    ) : null}
+  </article>
+);
 
 export default ProjectCard;

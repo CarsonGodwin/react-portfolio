@@ -1,53 +1,31 @@
 import React from "react";
-import githubLogo from "../../assets/images/whiteGitHub.png";
-import linkedinLogo from "../../assets/images/linkedin.png";
 import contact from "../../data/contact";
+import Section from "../ui/Section";
 
-
-const Contact = () => {
-  return (
-    <section className="px-6 pb-4 pt-5" id="contact">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10" data-reveal>
-        <div>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted">
-            Contact
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold text-text">Let’s Connect</h2>
-        </div>
-        <div className="flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/5 p-6">
-          <div>
-            <p className="text-sm text-muted">Email</p>
-            <a className="mt-2 block text-base font-semibold text-text" href={`mailto:${contact.email}`}>
-              {contact.email}
-            </a>
-          </div>
-          <div className="flex flex-wrap gap-6 text-sm">
-            <a
-              className="inline-flex items-center gap-2 text-muted underline underline-offset-4 transition hover:text-text"
-              href={contact.linkedin}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <img alt="LinkedIn" className="h-4 w-4" src={linkedinLogo} />
-              LinkedIn
-            </a>
-            <a
-              className="inline-flex items-center gap-2 text-muted underline underline-offset-4 transition hover:text-text"
-              href={contact.github}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <img alt="GitHub" className="h-4 w-4" src={githubLogo} />
-              GitHub
-            </a>
-          </div>
-        </div>
-        <footer className="border-t border-white/10 pt-6 text-xs uppercase tracking-[0.3em] text-muted">
-          {contact.site}
-        </footer>
-      </div>
-    </section>
-  );
-};
+const Contact = () => (
+  <Section id="contact" label="Contact">
+    <p className="max-w-prose text-[17px] leading-relaxed text-text">
+      Email is the best way to reach me:{" "}
+      <a className="link" href={`mailto:${contact.email}`}>
+        {contact.email}
+      </a>
+      . <br></br>
+      I'm also on{" "}
+      <a className="link" href={contact.github} rel="noreferrer" target="_blank">
+        GitHub
+      </a>{" "}
+      and{" "}
+      <a className="link" href={contact.linkedin} rel="noreferrer" target="_blank">
+        LinkedIn
+      </a>
+      .
+    </p>
+    <footer className="mt-16 flex flex-wrap gap-x-6 gap-y-1 border-t border-border pt-6 font-mono text-xs text-muted">
+      <span>{contact.site}</span>
+      <span>{contact.location}</span>
+      <span>Updated {contact.updated}</span>
+    </footer>
+  </Section>
+);
 
 export default Contact;

@@ -5,13 +5,13 @@ import githubLogo from "../../assets/images/whiteGitHub.png";
 import linkedinLogo from "../../assets/images/linkedin.png";
 
 const KIND_LABEL = {
-  project: "Project unlocked",
-  role: "Experience unlocked",
-  contact: "Extraction point"
+  project: "Project",
+  role: "Experience",
+  contact: "Contact"
 };
 
 const ContactCard = ({ contact }) => (
-  <div className="flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/5 p-6">
+  <div className="flex flex-col gap-6 rounded-xl border border-border bg-surface p-6">
     <div>
       <p className="text-sm text-muted">Email</p>
       <a className="mt-2 block text-base font-semibold text-text" href={`mailto:${contact.email}`}>
@@ -34,7 +34,7 @@ const ContactCard = ({ contact }) => (
         rel="noreferrer"
         target="_blank"
       >
-        <img alt="GitHub" className="h-4 w-4" src={githubLogo} />
+        <img alt="GitHub" className="h-4 w-4" src={githubLogo} style={{ filter: "var(--logo-filter)" }} />
         GitHub
       </a>
     </div>
@@ -55,7 +55,7 @@ const EntityModal = ({ entity, onClose }) => {
 
   return (
     <div
-      className="absolute inset-0 z-20 flex cursor-auto items-center justify-center bg-[#0d0f14]/80 p-6 backdrop-blur-sm"
+      className="absolute inset-0 z-20 flex cursor-auto items-center justify-center bg-bg/80 p-6 backdrop-blur-sm"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -65,19 +65,19 @@ const EntityModal = ({ entity, onClose }) => {
     >
       <div className="flex max-h-full w-full max-w-2xl flex-col gap-4 overflow-y-auto">
         <div className="flex items-center justify-between">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
             {KIND_LABEL[entity.kind]}
           </p>
           <button
-            className="rounded-full border border-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-text transition hover:border-accent/70 hover:text-accent"
+            className="rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-text transition hover:border-accent/70 hover:text-accent"
             onClick={onClose}
             type="button"
           >
             Close · Esc
           </button>
         </div>
-        {entity.kind === "project" ? <ProjectCard project={entity.data} reveal={false} /> : null}
-        {entity.kind === "role" ? <RoleCard role={entity.data} reveal={false} /> : null}
+        {entity.kind === "project" ? <div className="rounded-xl border border-border bg-surface p-6"><ProjectCard project={entity.data} /></div> : null}
+        {entity.kind === "role" ? <div className="rounded-xl border border-border bg-surface px-6"><RoleCard role={entity.data} /></div> : null}
         {entity.kind === "contact" ? <ContactCard contact={entity.data} /> : null}
       </div>
     </div>

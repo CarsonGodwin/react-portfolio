@@ -1,6 +1,7 @@
 const roles = [
   {
     id: "impact-point",
+    current: true,
     company: "Impact Point",
     title: "Backend Engineer & Co-Founder",
     range: "August 2025 – Present",
@@ -14,6 +15,7 @@ const roles = [
   },
   {
     id: "kimley-horn",
+    current: true,
     company: "Kimley-Horn",
     title: "Software Engineer",
     range: "March 2025 – Present",
@@ -27,7 +29,7 @@ const roles = [
     id: "infosys",
     company: "Infosys",
     title: "Software Engineer Intern",
-    range: "May – July 2024",
+    range: "May 2024 – July 2024",
     bullets: [
       "Built a full-stack AI documentation assistant (Flask, Azure OpenAI) that let non-technical stakeholders generate structured client deliverables without developer involvement, reducing creation time from 3–4 hours to under 5 minutes.",
       "Engineered the backend logic using LangChain, Pandas, and Azure OpenAI to parse Excel requirements and generate reliable, strictly formatted outputs via few-shot prompting."
@@ -37,7 +39,7 @@ const roles = [
     id: "uncw-research",
     company: "UNCW College of Science and Engineering",
     title: "ML Research Assistant",
-    range: "Sept 2022 – Jan 2024",
+    range: "September 2022 – January 2024",
     bullets: [
       "First author on a published IEEE paper on search personalization; engineered a custom Python automation suite (Selenium, BeautifulSoup) to harvest 10,000+ search results for analysis.",
       "Built a \"virtual personality\" simulation tool to mimic organic user behavior, generating a dataset used to train ML models on search engine privacy algorithms."

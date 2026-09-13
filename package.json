@@ -4,6 +4,7 @@
   "homepage": "https://carsongodwin.github.io/react-portfolio",
   "private": true,
   "dependencies": {
+    "matter-js": "^0.20.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
