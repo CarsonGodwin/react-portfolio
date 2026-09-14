@@ -1,14 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Tokens as RGB triplets so Tailwind opacity modifiers work. Dark is the
+   fallback; public/index.html sets data-theme before first paint. */
 :root {
-  --bg: #0d0f14;
-  --text: #e6edf3;
-  --muted: #9cb2c1;
-  --accent: #2cb9ae;
+  --c-bg: 12 12 14;
+  --c-surface: 20 20 24;
+  --c-text: 235 235 240;
+  --c-muted: 140 145 158;
+  --c-accent: 96 165 250;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.22);
+
+  /* Project accents (see src/data/projects.js). */
+  --c-violet: 167 139 250;
+  --c-orange: 251 146 60;
+  --c-pink: 244 114 182;
+  --c-teal: 45 212 191;
+  /* Arena-only. */
+  --c-sky: 56 189 248;
+  --c-green: 52 211 153;
+  --logo-filter: none;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --c-bg: 250 249 246;
+  --c-surface: 255 255 255;
+  --c-text: 20 20 24;
+  --c-muted: 100 105 118;
+  --c-accent: 37 99 235;
+  --border: rgba(20, 20, 30, 0.12);
+  --border-strong: rgba(20, 20, 30, 0.28);
+
+  --c-violet: 124 58 237;
+  --c-orange: 234 88 12;
+  --c-pink: 219 39 119;
+  --c-teal: 13 148 136;
+  --c-sky: 2 132 199;
+  --c-green: 5 150 105;
+  --logo-filter: invert(1);
+
+  color-scheme: light;
 }
 
 * {
@@ -17,46 +54,120 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, rgba(0, 212, 200, 0.08), transparent 55%),
-    var(--bg);
-  color: var(--text);
+  background: rgb(var(--c-bg));
+  color: rgb(var(--c-text));
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: rgb(var(--c-accent) / 0.3);
 }
 
 a {
-  color: var(--text);
+  color: inherit;
   text-decoration: none;
 }
 
-a:hover {
-  color: var(--accent);
-}
-
 a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
 }
 
-[data-reveal] {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 500ms ease, transform 600ms ease;
+/* Inline text links. */
+.link {
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 150ms ease, color 150ms ease;
 }
 
-body.js-reveal [data-reveal] {
-  opacity: 0;
-  transform: translateY(12px);
+.link:hover {
+  color: rgb(var(--c-accent));
+  text-decoration-color: rgb(var(--c-accent));
 }
 
-body.js-reveal [data-reveal].is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Per-project color. Set --p to an RGB triplet on the element. */
+.swatch {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  background: rgb(var(--p));
+  flex-shrink: 0;
+}
+
+.tint-text {
+  color: rgb(var(--p, var(--c-accent)));
+}
+
+/* Flat color highlight behind a phrase. */
+.hl {
+  color: inherit;
+  background: rgb(var(--p, var(--c-accent)) / 0.22);
+  box-shadow: 0 0 0 0.12em rgb(var(--p, var(--c-accent)) / 0.22);
+  border-radius: 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.tint-frame {
+  border: 1px solid rgb(var(--p) / 0.35);
+  box-shadow: 0 12px 40px -18px rgb(var(--p) / 0.55);
+}
+
+.tint-row {
+  transition: background-color 150ms ease;
+}
+
+.tint-row:hover {
+  background-color: rgb(var(--p) / 0.06);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Small pill for callouts like awards or usage stats. Uses --p (see .swatch). */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgb(var(--p, var(--c-accent)) / 0.35);
+  background: rgb(var(--p, var(--c-accent)) / 0.12);
+  color: rgb(var(--p, var(--c-accent)));
+  padding: 0.2rem 0.65rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
